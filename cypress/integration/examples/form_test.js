@@ -34,5 +34,10 @@ describe('Form Test', ()=>{
         cy.contains('Submit Your Order!')
         .click()
     })
+
+    it ('Can anvigate back to the home page after form submission', ()=>{
+        cy.contains('Back to Home Page')
+        .click()
+    })
     
 })

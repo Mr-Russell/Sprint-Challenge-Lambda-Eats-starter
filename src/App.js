@@ -47,8 +47,8 @@ const App = () => {
   const postOrder = order =>{
     axios.post('https://reqres.in/api/unknown', order)
     .then(res =>{
-      //console.log(res)
-      setPizzaOrder(res.data)
+      console.log(res)
+      setPizzaOrder([...pizzaOrder, res.data])
     })
     .catch(err =>{
       console.log(err)
@@ -143,7 +143,9 @@ const checkboxChange = evt => {
             })
           }
 
-          {/* <OrderDetails details={formValues} /> */}
+          {/* {
+            pizzaOrder && <OrderDetails details={pizzaOrder} />
+          } */}
         </Route>
 
 
