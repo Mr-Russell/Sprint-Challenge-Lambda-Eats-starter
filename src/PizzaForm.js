@@ -97,11 +97,6 @@ function PizzaForm (props) {
             <br />
 
             <button>Submit Your Order!</button>
-
-            <br />
-            <br />
-
-
         </form>
         
     )

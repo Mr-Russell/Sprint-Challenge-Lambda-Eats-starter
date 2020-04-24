@@ -7,7 +7,7 @@ import OrderDetails from "./OrderDetails.js";
 
 const blankForm = {
   name: '',
-  size: '10',
+  size: '10in',
   toppings:{
     pepperoni: false,
     sausage: false,
@@ -122,7 +122,7 @@ const checkboxChange = evt => {
             values={formValues}
             inputChange={inputChange}
             CheckboxChange={checkboxChange}
-            onsubmit={onSubmit}
+            onSubmit={onSubmit}
             errors={formErrors}/>
 
           {
