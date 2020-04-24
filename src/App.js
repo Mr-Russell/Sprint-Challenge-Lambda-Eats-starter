@@ -28,6 +28,12 @@ const formSchema = yup.object().shape({
     .string()
     .min(2, 'Order Name Must Have At Least 2 Characters!')
     .required('Order Name is REQUIRED!'),
+
+  size: yup
+    .string(),
+    
+  instructions: yup
+    .string()
 })
 
 
@@ -41,7 +47,7 @@ const App = () => {
   const postOrder = order =>{
     axios.post('https://reqres.in/api/unknown', order)
     .then(res =>{
-      console.log(res)
+      //console.log(res)
       setPizzaOrder(res.data)
     })
     .catch(err =>{
@@ -49,6 +55,8 @@ const App = () => {
     })
   }
  //postOrder()
+  console.log(pizzaOrder)
+
 
  const onSubmit = evt =>{
    evt.preventDefault()
@@ -56,7 +64,7 @@ const App = () => {
    const newOrder = {
      name: formValues.name,
      size: formValues.size,
-     toppings: Object.keys(formValues.hobbies)
+     toppings: Object.keys(formValues.toppings)
      .filter(topping => formValues.toppings[topping] === true),
      instructions: formValues.instructions,
    }
@@ -111,7 +119,7 @@ const checkboxChange = evt => {
       <header>
         <h1>Lambda Eats</h1>
         <Route path='/pizza'>
-          <Link to='/'>Back to Home Page</Link>
+          <Link to='/'><button>Back to Home Page</button></Link>
         </Route>
       </header>
 
@@ -121,9 +129,11 @@ const checkboxChange = evt => {
           <PizzaForm 
             values={formValues}
             inputChange={inputChange}
-            CheckboxChange={checkboxChange}
+            checkboxChange={checkboxChange}
             onSubmit={onSubmit}
-            errors={formErrors}/>
+            errors={formErrors} />
+
+          <br />
 
           {
             pizzaOrder.map(order =>{
@@ -132,20 +142,22 @@ const checkboxChange = evt => {
               )
             })
           }
+
+          {/* <OrderDetails details={formValues} /> */}
         </Route>
 
 
         <Route path="/">
           <Link to="/pizza"><button>Pizza?</button></Link>
-          <br />
+          <br /><br />
           <button>Burgers?</button>
-          <br />
+          <br /><br />
           <button>Sandwiches?</button>
-          <br />
+          <br /><br />
           <button>Pancakes?</button>
-          <br />
+          <br /><br />
           <button>Tacos?</button>
-          <br />
+          <br /><br />
           <button>Burritos?</button>
         </Route>
 

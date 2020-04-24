@@ -15,7 +15,7 @@ describe('Form Test', ()=>{
     })
 
     it ('Can select multiple toppings', ()=>{
-        cy.get('input[name="pepperoni]')
+        cy.get('input[name="pepperoni"]')
         .check()
 
         cy.get('input[name="bacon"]')
@@ -23,6 +23,11 @@ describe('Form Test', ()=>{
 
         cy.get('input[name="exCheese"]')
         .check()
+    })
+
+    it ('Can enter "Special instructions"', ()=>{
+        cy.get('input[name="instructions"]')
+        .type('Extra cirspy, Dude!')
     })
 
     it ('Can submit order form', ()=>{

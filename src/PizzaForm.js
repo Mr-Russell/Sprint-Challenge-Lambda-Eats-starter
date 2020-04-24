@@ -1,6 +1,8 @@
 import React from 'react';
 
 function PizzaForm (props) {
+
+
     return(
         <form onSubmit={props.onSubmit}>
             <h2>Build Your Own Pizza</h2>
@@ -28,6 +30,8 @@ function PizzaForm (props) {
             <label>Pizza Size:
                 <select
                 name='size'
+                value={props.values.size}
+                onChange={props.inputChange}
                 >
                     <option value='10in'>10 inch</option>
                     <option value='12in'>12 inch</option>
